@@ -1,0 +1,41 @@
+{% extends "generic/base.html" %}
+{% block title %} Books List {% endblock title %}
+
+
+{% block content %}
+
+{% for book in books %}
+<div id="cover">
+<img src="/static/boo_cover/{{ book.cover }}" width="200px" alt="{{ book.title|truncatechars:9 }}" />
+<P><i><strong>{{ book.title|title }}</strong></i></P>
+<P>{{ book.author|title }}</P>
+<P>Publisher: {{ book.publisher|title }}</P>
+</div>
+
+<div id="review">
+<P><i><b>Review</b></i></P>
+{{ book.review|linebreaks }}
+</div>
+{% endfor %}
+
+<!----------------------------Pagination------------------------------->
+<div id="page">
+<p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+&nbsp;|&nbsp;
+{% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+{% else %}
+Previous
+{% endif %}
+
+&nbsp;|&nbsp;
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">Next</a>
+{% else %}
+Next
+{% endif %}
+</p>
+</div>
+
+{% endblock content %}
+

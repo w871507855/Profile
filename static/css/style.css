@@ -36,6 +36,15 @@ body{
 	margin: 0px auto;
 }
 
+#content,
+#feature
+{
+	margin-top: 25px;
+}
+
+#feature p{
+	margin: 0.1em auto;
+}
 
 a:link{
 	text-decoration: none;
@@ -60,6 +69,8 @@ li{
 	margin-right: 10px;
 }
 
+
+/* Module for Resume */
 .tbresume .centerlise{
 	text-align: center;
 	margin: 0.1em auto 0.1em auto;
@@ -76,4 +87,31 @@ tbresume .none{
 	margin-bottom: 0.5em;
 	padding-top: 0em;
 	padding-bottom: 0em;
+}
+
+
+
+/* Module for Book review */
+#review{
+	position: relative;
+	width: 650px;
+	top: 0px;
+	left: 20px;
+	min-height: 300px;
+}
+#cover{
+	border-right: 1px solid;
+	width: 300px;
+	min-height: 300px;
+	float: left;
+}
+#cover p{
+	margin: 0.1em auto;
+}
+#page{
+	float: right;
+	margin-top: 1em;
+}
+#page a:hover{
+	background: gray;
 }

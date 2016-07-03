@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # individual installed apps
     'resume.apps.ResumeConfig',
+    'books.apps.BooksConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
