@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Demo | {{ profile.name }}</title>
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'resume/style_print.css' %}" type="text/css"  />
+</head>
+<body>
+<table class="tbresume">
+    <tr>
+        <td class="centerlise" colspan="2"><h2>{{ profile.name|title }}</h2></td>
+    </tr>
+    <tr>
+        <td class="centerlise" colspan="2">Cell Phone: {{ profile.phone }} | Email: {{ profile.email }} </td>
+    </tr>
+    <tr>
+        <td class="centerlise" colspan="2"><h3>Summary of Qualifications</h3></td>
+    </tr>
+    <tr>
+        <td colspan="2">
+        {% for item in Qualifications %}
+            {{ item.detail_item|linebreaks }}
+        {% empty %}
+            Sorry, The author forget to complete.
+        {% endfor %}
+        </td>
+    </tr>
+    <!-------------------------------------------->
+    <tr>
+        <td class="centerlise" colspan="2"><h3>Professional Experience & Achievements</h3></td>
+    </tr>
+    {% for item in Achievements %}
+    <tr class="title">
+        <td>{{ item.organisation }}</td>
+        {% if forloop.first %}
+        <td>{{ item.from_date|date:"N Y" }} - Now</td>
+        {% else %}
+        <td>{{ item.from_date|date:"N Y" }} - {{ item.to_date|date:"N Y" }}</td>
+        {% endif %}
+    </tr>
+    <tr class="none">
+        <td colspan="2">{{ item.detail|linebreaks }}</td>
+    </tr>
+    {% endfor %}
+    <!-------------------------------------------->
+    <tr>
+        <td class="centerlise" colspan="2"><h3>Education</h3></td>
+    </tr>
+    {% for item in Education %}
+    <tr class="title">
+        <td>{{ item.organisation}}</td>
+        <td>{{ item.from_date|date:"N,Y" }} - {{ item.to_date|date:"N,Y" }}</td>
+    </tr>
+    <tr class="none">
+        <td colspan="2">{{ item.detail|linebreaks }}</td>
+    </tr>
+    {% endfor %}
+</table>
+</body>
+</html>
+

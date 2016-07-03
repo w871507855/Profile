@@ -1,0 +1,47 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Demo | {% block title %}{% endblock title %}</title>
+	<!-- <link rel="stylesheet" type="text/css" href=""> -->
+	{% load static %}
+	<link rel="stylesheet" href="{% static 'css/960_12_col.css' %}" type="text/css"  />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"  />
+
+
+</head>
+
+<body>
+
+<div class="container_12 clearfix">
+
+	<div class="grid_12" id="nav">
+		<ul>
+			<li><a href="{% url 'Hello_Page' %}">Home</a></li>
+			<li><a href="/resume/detail/1">Resume</a></li>
+			<li><a href="#">Demo1</a></li>
+			<li><a href="#">Demo2</a></li>
+		</ul>
+		<img style="float:right; margin-right:5px" src="{% static 'img/cxh.jpg' %}"  alt="author" />
+	</div>
+
+	<div class="grid_3 min_height_500" id="feature" >
+		<h4>Contact Me:</h4>
+		<img src="{% static 'img/profile.jpg' %}" width="100px"  alt="author" />
+		<p>Email: cxhair@163.com</p>
+		<p>Cell: 186 1639 2498</p>
+	</div>
+
+	<div class="grid_9 min_height_500" id="content">
+		{% block content %}
+		{% endblock content %}
+	</div>
+
+	<div class="grid_12" id="footer">
+		<p>&copy; Copyright {% now "Y" %} </p>
+	</div>
+
+</div><!-- End .container_12 -->
+
+</body>
+</html>

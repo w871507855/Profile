@@ -1,0 +1,31 @@
+*{
+	font-family: Arial, Verdana;
+	color: #665544;
+}
+
+body{
+	margin: 5px auto;
+	width: 900px;
+	background-color: #f8f8f8;
+	padding: 5px;
+}
+
+
+
+.tbresume .centerlise{
+	text-align: center;
+	margin: 0.1em auto 0.1em auto;
+}
+
+
+.tbresume .title{
+	border-bottom: 1px solid;
+	font-style: italic;
+	background-color: lightgray;
+}
+tbresume .none{
+	margin-top:0.1em;
+	margin-bottom: 0.5em;
+	padding-top: 0em;
+	padding-bottom: 0em;
+}
