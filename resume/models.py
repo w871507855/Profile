@@ -1,4 +1,9 @@
+# import from python standard module
+import datetime
+
+# import from app
 from django.db import models
+from django.utils import timezone
 
 
 # Basic information
@@ -22,6 +27,12 @@ class CommonInfo(models.Model):
 
     def __str__(self):
         return self.organisation
+
+    def is_date_validate(self):
+        # now = datetime.datetime.now()
+        # TypeError: can't compare offset-naive and offset-aware datetimes.
+        now = timezone.now()
+        return now > self.to_date > self.from_date
 
     class Meta:
         abstract = True

@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     # individual installed apps
     'resume.apps.ResumeConfig',
     'books.apps.BooksConfig',
+    'formhook.apps.FormhookConfig',
 ]
 
 MIDDLEWARE_CLASSES = [

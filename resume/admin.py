@@ -19,10 +19,11 @@ class EducationInline(admin.StackedInline):
 
 class ProfileAdmin(admin.ModelAdmin):
     fields = ['name', 'phone', 'email']
+    list_display = ('name', 'phone', 'email')
     # inlines = [Qualifications, Achievements, Education]
 
 
-admin.site.register(Profile)
+admin.site.register(Profile, ProfileAdmin)
 admin.site.register(Qualifications)
 admin.site.register(Achievements)
 admin.site.register(Education)

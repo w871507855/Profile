@@ -24,4 +24,5 @@ urlpatterns = [
     url(r'^$', views.helloPage, name='Hello_Page'),
     url(r'^resume/', include('resume.urls')),
     url(r'^books/', include('books.urls')),
+    url(r'^formhook/', include('formhook.urls')),
 ]
