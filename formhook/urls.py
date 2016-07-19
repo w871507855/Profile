@@ -1,9 +1,11 @@
 from django.conf.urls import url
 
-from .views import Introduction
+from .views import Introduction, intro
 
 app_name = 'formhook'
 urlpatterns = [
-    # /formhook/
-    url(r'^$', Introduction.as_view(), name='create_profile'),
+    # /formhook/create/
+    url(r'^create/$', Introduction.as_view(), name='create_profile'),
+    # /formhook/succed/, if create profile succeded, redirect to this page.
+    url(r'^succed/$', intro, name='profile_created'),
 ]
