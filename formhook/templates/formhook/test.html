@@ -1,0 +1,24 @@
+{% load fancy_tricks %}
+
+<p>App: {{ app }}</p>
+<p>User: {{ user }}</p>
+<p>IP address: {{ ip_address }}</p>
+<p>Message: {{ message.upper }}</p>
+<p>{{ request.REMOTE_ADDR|default:"&lt; &gt;" }}</p>
+{{ testp|addp }}
+
+{% comment %}
+{% for dic in sql_queries %}
+	{% for key, value in dic.items %}
+	<p>{{ key }} : {{ value }}</p>
+	{% endfor %}
+	<hr />
+{% endfor %}
+{% endcomment %}
+
+
+
+
+
+
+
