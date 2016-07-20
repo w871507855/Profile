@@ -26,4 +26,24 @@ def intro(request):
         return render(request, 'formhook/Introduction.html', {'form': form})
 
 
+from django.template import loader, RequestContext
+from django.http import HttpResponse
+
+
+def custom_proc(request):
+    # "A context processor that provides 'app', 'user' and 'ip_address'."
+    return {'app': 'My app',
+            'user': request.user,
+            'ip_address': request.META['REMOTE_ADDR'],
+            # 'sql_queries':  request.debug,
+            'request': request,
+            'testp': 'AAA\nBBB\nCCC'
+            }
+
+
+def test(request):
+    t = loader.get_template('formhook/test.html')
+    c = RequestContext(request, {'message': 'I am view 1.'}, processors=[custom_proc])
+    return HttpResponse(t.render(c))
+
 

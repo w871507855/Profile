@@ -44,6 +44,8 @@ INSTALLED_APPS = [
     'resume.apps.ResumeConfig',
     'books.apps.BooksConfig',
     'formhook.apps.FormhookConfig',
+    # A global extra tags and filter app
+    'TagFilter.apps.TagfilterConfig',
 ]
 
 MIDDLEWARE_CLASSES = [
