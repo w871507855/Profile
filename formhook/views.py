@@ -38,6 +38,7 @@ def custom_proc(request):
             # 'sql_queries':  request.debug,
             'request': request,
             'testp': 'AAA\nBBB\nCCC'
+            # 'testp': 'AAA<script>alert("BUG")</script>AAAA'
             }
 
 

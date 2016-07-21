@@ -1,4 +1,5 @@
 from django import template
+from django.utils.html import conditional_escape
 from django.utils.safestring import mark_safe
 
 
@@ -11,6 +12,8 @@ def addp(value):
     :param value: string containing '\n'
     :return: String containing <p></p> html tags.
     '''
+    # Just in case there is html tags in value
+    value = conditional_escape(value)
 
     # Split any text by '\n',
     # Such as, 'aaaa\nbbb\nccc' convert to ['aaaa', 'bbb', 'ccc']
