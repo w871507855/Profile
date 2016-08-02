@@ -6,6 +6,16 @@
 <p>Message: {{ message.upper }}</p>
 <p>{{ request.REMOTE_ADDR|default:"&lt; &gt;" }}</p>
 {{ testp|addp }}
+<p>Current Application Name is <strong>{{ current_app.upper }} </strong></p>
+
+<form action="{% url 'formhook:view_test' %}" method="post">
+{% csrf_token %}
+<label for='search' >Searching</label>
+<input type="text", name='search' value="" />
+<input type="submit", value="ok" />
+</form>
+
+
 
 {% comment %}
 {% for dic in sql_queries %}

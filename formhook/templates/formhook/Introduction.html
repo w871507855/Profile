@@ -5,9 +5,7 @@
 {% block content %}
 <form action="{% url 'formhook:profile_created' %}" method='post'>
 {% csrf_token %}
-<table>
-{{ form.as_table }}
-</table>
+{% include 'formhook/loge_form.html' %}
 <input type='submit' value="Submit" />
 </form>
 {% endblock content %}

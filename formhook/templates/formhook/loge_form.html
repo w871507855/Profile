@@ -1,0 +1,7 @@
+<div class="fieldWrapper">
+{% for field in form.visible_fields %}
+	<p>{{ field.label_tag }}</p>
+	{{ field }}
+	{{ field.errors }}
+{% endfor %}
+</div>

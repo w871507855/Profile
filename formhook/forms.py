@@ -1,19 +1,38 @@
 from django import forms
+from .models import PersonalInfor
 
 
-class PersonalInfo(forms.Form):
-    name = forms.CharField(max_length=50, label='Your name', strip=True)
-    date_of_birth = forms.DateField(
-        label='Date of birth',
-        input_formats=['%Y-%m-%d'],
-        help_text='format example: 2016-01-01'
+class PersonalInforForm(forms.ModelForm):
+    class Meta:
+        model = PersonalInfor
+        # fields = ['name', 'date_of_birth', 'email', 'introduction']
+        fields = '__all__'
+        widgets = {
+            'introduction': forms.Textarea(attrs={'cols': 25, 'rows': 5}),
+            'name': forms.TextInput(attrs={'title':'Your name', 'required': True}),
+            'email': forms.TextInput(attrs={'required': True}),
+        }
+
+
+class CommentForm(forms.Form):
+    name = forms.CharField(widget=forms.TextInput(attrs={'class': 'special'}))
+    url = forms.URLField()
+    comment = forms.CharField(
+        widget=forms.TextInput(attrs={'size': '40', 'title': 'Fill in your name'})
     )
-    email = forms.EmailField(label='Email address')
-    introduction = forms.CharField(
-        widget=forms.Textarea,
-        label='Self introduction',
-        required=False
-    )
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

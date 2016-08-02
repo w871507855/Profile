@@ -5,9 +5,9 @@
 {% block content %}
 
 <p>name: {{ name }}</p>
-<p>Date of birth: {{ date_of_birth }}</p>
+<p>Date of birth: {{ date_of_birth|default:"--Empty--" }}</p>
 <p>E-mail: {{ email }}</p>
-<p>Introduction: {{ introduction }}</p>
+<p>Introduction: {{ introduction|default:"--Empty--" }}</p>
 
 {% endblock content %}
 
