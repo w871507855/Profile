@@ -25,3 +25,25 @@ def addp(value):
     return mark_safe(''.join(list_str))
 
 register.filter('addp', addp)
+
+'''
+@template.Library.simple_tag
+def query_list_all(obj, form='p', max_entry=5)
+
+
+    :param obj: to be a query object;
+    :param form: 'p'--> <p> | 'li'--> <li> | 'dt'--> <dt>;
+    :param max_entry: obj.objects.all[:max_entry], the maximum entry allowed;
+    :return: If obj.objects.all() == [aaa, bbb, ccc], then:
+    if form='p', <p>aaa</p><p>bbb</p><p>ccc</p>
+    if form='li', <li>aaa</li><li>bbb</li><p>ccc</li>
+    if form='dt', <dt>aaa</dt><dt>bbb</dt><p>ccc</dt>
+
+    try:
+        entry_list = obj.objects.all()[:max_entry]
+
+    except:
+        return ''
+
+register.tag('query_list_all', query_list_all)
+'''
