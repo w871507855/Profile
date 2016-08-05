@@ -1,9 +1,12 @@
 # import from python standard module
 import datetime
 
-# import from app
+# import from django
 from django.db import models
 from django.utils import timezone
+from django.core.urlresolvers import reverse
+from django.core.exceptions import ValidationError
+from django.utils.html import format_html
 
 
 # Basic information
@@ -14,6 +17,15 @@ class Profile(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('resume:print', kwargs={'pk': self.id})
+
+    # 'show_url' will be added in ModelAdmin.list_display,
+    # it is more direct to view this page than next page's 'view on site'.
+    def show_url(self):
+        url = self.get_absolute_url()
+        return format_html('<a href="' + url + '">View On Site</a>')
 
 
 # Define a common ABSTRACT model for Achievements & Education.
@@ -27,6 +39,18 @@ class CommonInfo(models.Model):
 
     def __str__(self):
         return self.organisation
+
+    def clean(self):
+        today = timezone.now().date()
+        if self.to_date > today:
+            raise ValidationError({'to_date': ValidationError("Date is set to future illegally.", code='invalid')})
+        if self.from_date > self.to_date:
+            raise ValidationError(
+                {
+                    'to_date': ValidationError("To should bigger than FROM literally", code='invalid'),
+                    'from_date': ValidationError("To should bigger than FROM literally", code='invalid')
+                                   }
+            )
 
     def is_date_validate(self):
         # now = datetime.datetime.now()

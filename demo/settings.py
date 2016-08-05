@@ -131,6 +131,8 @@ USE_L10N = True
 
 USE_TZ = True
 
+# default value is 0, but i prefer to set Monday as the first day of the week
+FIRST_DAY_OF_WEEK = 1
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
