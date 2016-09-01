@@ -2,46 +2,80 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name='viewport' content='width=device-width, initial-scale=1.0' >
 	<title>Demo | {% block title %}{% endblock title %}</title>
-	<!-- <link rel="stylesheet" type="text/css" href=""> -->
+
 	{% load static %}
-	<link rel="stylesheet" href="{% static 'css/960_12_col.css' %}" type="text/css"  />
-	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"  />
-
-
+	<link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" />
+	<link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
 </head>
+
+
+
 
 <body>
 
-<div class="container_12 clearfix">
 
-	<div class="grid_12" id="nav">
-		<ul>
-			<li><a href="{% url 'Hello_Page' %}">Home</a></li>
-			<li><a href="/resume/detail/1">Resume</a></li>
-			<li><a href="/books/">Books</a></li>
-			<li><a href="/formhook/create/">AboutForm</a></li>
-		</ul>
-		<img style="float:right; margin-right:5px" src="{% static 'img/cxh.jpg' %}"  alt="author" />
-	</div>
+<header role="banner">
+	<nav class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{% url 'Hello_Page' %}">Micheal's Resume</a>
+			</div>
 
-	<div class="grid_3 min_height_500" id="feature" >
-		<h4>Contact Me:</h4>
-		<img src="{% static 'img/profile.jpg' %}" width="100px"  alt="author" />
-		<p>Email: cxhair@163.com</p>
-		<p>Cell: 186 1639 2498</p>
-	</div>
+			<div class="collapse navbar-collapse" id="example-navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{% url 'Hello_Page' %}"> <span class="glyphicon glyphicon-home"> Home</a></li>
+					<li><a href="/resume/detail/1">Resume</a></li>
+					<li><a href="/books/">Books</a></li>
+					<li><a href="/formhook/create/">AboutForm</a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+</header>
 
-	<div class="grid_9 min_height_500" id="content">
-		{% block content %}
-		{% endblock content %}
-	</div>
 
-	<div class="grid_12" id="footer">
-		<p>&copy; Copyright {% now "Y" %} </p>
-	</div>
+<main role='main' style="min-height: 600px;">
+	<div class="container">
+		<div class="row">
 
-</div><!-- End .container_12 -->
+			<!-- Side bar -->
+			<div class="col-sm-3">
+				<h5>Contact Me:</h5>
+				<img src="{% static 'img/profile.jpg' %}" class="img-rounded" width="100px"  alt="author" />
+				<br><br>
+				<p><span class="glyphicon glyphicon-envelope"></span> Email: cxhair@163.com</p>
+				<p><span class="glyphicon glyphicon-phone"></span> Phone: 186 1639 2498</p>
+			</div>
+
+			<!-- Main content -->
+			<div class="col-sm-9">
+				{% block content %}
+				{% endblock content %}
+			</div>
+
+		</div><!-- End Row -->
+	</div><!-- End Container -->
+</main>
+
+
+<footer role='contentioninfo'>
+		<p style="margin: auto 0.3em;">&copy; Copyright {% now "Y" %} </p>
+</footer>
+
+
+
+<script src="{% static 'js/vendor/jquery-1.12.0.min.js' %}"></script>
+<script src="{% static 'js/vendor/modernizr-2.8.3.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
 
 </body>
 </html>
