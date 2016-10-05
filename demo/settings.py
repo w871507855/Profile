@@ -78,11 +78,6 @@ TEMPLATES = [
     },
 ]
 
-# add 'static' directory for generic css, img and javascript.
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
-]
-
 
 WSGI_APPLICATION = 'demo.wsgi.application'
 
@@ -96,6 +91,10 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
 
 
 # Password validation
@@ -138,3 +137,10 @@ FIRST_DAY_OF_WEEK = 1
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+if DEBUG:
+    import logging
+    logging.basicConfig(level=logging.DEBUG)

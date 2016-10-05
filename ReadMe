@@ -1,0 +1,7 @@
+$ python manage.py runserver
+
+Django version: Django1.9
+
+Dependency:
+pillow-3.4.1
+

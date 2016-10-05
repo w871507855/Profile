@@ -6,7 +6,7 @@
 
 {% for book in books %}
 <div id="cover">
-<img src="/static/boo_cover/{{ book.cover }}" width="200px" alt="{{ book.title|truncatechars:9 }}" />
+<img src="{{ book.cover.url }}" width="200px" alt="{{ book.title|truncatechars:9 }}" />
 <P><i><strong>{{ book.title|title }}</strong></i></P>
 <P>{{ book.author|title }}</P>
 <P>Publisher: {{ book.publisher|title }}</P>
