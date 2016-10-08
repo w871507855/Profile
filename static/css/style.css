@@ -59,3 +59,12 @@ body{
 #page a:hover{
 	background: gray;
 }
+
+li.debug,
+li.info,
+li.success,
+li.warning,
+li.error{ text-decoration: none; }
+li.debug{ background-color: blue; color: gray; }
+li.info{ background-color: #FFA500;	color: gray; }
+li.success{ background-color: #FFA500;	color: gray; }

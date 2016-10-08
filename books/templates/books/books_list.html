@@ -4,6 +4,12 @@
 
 {% block content %}
 
+{% if messages %}
+    {% for message in messages %}
+        <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+{% endif %}
+
 {% for book in books %}
 <div id="cover">
 <img src="{{ book.cover.url }}" width="200px" alt="{{ book.title|truncatechars:9 }}" />
@@ -18,7 +24,7 @@
 </div>
 {% endfor %}
 
-<!----------------------------Pagination------------------------------->
+
 <div id="page">
 <p>Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
 &nbsp;|&nbsp;
@@ -38,4 +44,3 @@ Next
 </div>
 
 {% endblock content %}
-

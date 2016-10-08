@@ -1,0 +1,23 @@
+{% extends "generic/base.html" %}
+{% block title %} Books Detail {% endblock title %}
+
+{% load static %}
+
+
+{% block content %}
+{% if messages %}
+    {% for message in messages %}
+        <li {% if message.tags %}class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+{% endif %}
+<div>
+    <p><img src="{% static book.cover.url %}" alt="{{ book.title }}" width="120"></p>
+    <div>
+        <h4>Title:<b>{{ book.title }}</b></h4>
+        <p>Author: {{ book.author }}</p>
+        <p>Publisher: {{ book.publisher }}</p>
+        <p>Review:</p>
+        <div>{{ book.review }}</div>
+    </div>
+</div>
+{% endblock content %}
