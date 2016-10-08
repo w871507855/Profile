@@ -33,11 +33,6 @@ def delete_book(request, id):
     book = get_object_or_404(BookList, id=id)
     messages.add_message(request, messages.WARNING,
                          'The book %s is deleted.' % book.title.upper())
-    # delete the file first
-    try:
-        os.remove(book.cover.path)
-    except FileNotFoundError:
-        print("File Not Exits!")
     book.delete()
     return HttpResponseRedirect(reverse('books:books'))
 

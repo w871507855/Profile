@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from django.core.urlresolvers import reverse
 
@@ -11,6 +13,14 @@ class BookList(models.Model):
 
     def __str__(self):
         return self.title
+
+    def delete(self, *args, **kwargs):
+        if self.cover.path:
+            try:
+                os.remove(self.cover.path)
+            except FileNotFoundError:
+                print("File Not Exits!")
+        super(BookList, self).delete(*args, **kwargs)
 
     def get_absolute_url(self):
         return reverse('books:detail_book', kwargs={'id': self.id})
